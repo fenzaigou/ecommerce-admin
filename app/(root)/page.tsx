@@ -1,20 +1,16 @@
 "use client";
+
+import { useStoreModal } from "@/hooks/use-store-modal";
 import { Button } from "@/components/ui/button";
-import { Modal } from "@/components/ui/modal";
 
 const SetupPage = () => {
+  const onOpen = useStoreModal((state) => state.onOpen);
+  const isOpen = useStoreModal((state) => state.isOpen);
+
   return (
     <div className="p-4">
-      <Modal
-        title="Test"
-        description="Hello there!"
-        isOpen
-        onClose={() => {
-          console.log("closing");
-        }}
-      >
-        Children
-      </Modal>
+      <p>Root Page</p>
+      <Button onClick={onOpen}>Open</Button>
     </div>
   );
 };
